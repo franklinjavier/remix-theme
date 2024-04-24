@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "codeandstuff.package-json-upgrade",
+    "mattpocock.ts-error-translator",
+    "mikestead.dotenv",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
