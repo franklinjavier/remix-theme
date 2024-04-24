@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: hsl(0, 0%, 100%);
+  }
+
+  .dark {
+    --background: hsl(225, 6%, 13%);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-zinc-800 antialiased dark:text-zinc-300;
+  }
+}

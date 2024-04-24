@@ -1,26 +1,19 @@
 import { type MetaFunction } from '@remix-run/node'
+import { ThemeToggle } from '~/components/theme-toggle'
 import { Title } from '~/components/title'
 
+const title = 'Remix Theme'
+
 export const meta: MetaFunction = () => {
-  return [
-    { title: 'Remix Starter Template' },
-    { name: 'description', content: 'Remix Starter Template' },
-  ]
+  return [{ title }, { name: 'description', content: title }]
 }
 
 export default function Index() {
   return (
-    <main>
-      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-        <div className="text-center">
-          <Title>Remix Starter Template</Title>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-            fugiat aliqua.
-          </p>
-        </div>
-      </div>
+    <main className="mx-auto py-32 text-center sm:py-48">
+      <Title>{title}</Title>
+      <p className="mb-8">Example of theme mode feature in Remix</p>
+      <ThemeToggle />
     </main>
   )
 }
