@@ -1,9 +1,11 @@
 import { useSearchParams } from '@remix-run/react'
 import * as React from 'react'
 
-type NavigateOptions = {
-  replace?: boolean | undefined
+export type NavigateOptions = {
+  replace?: boolean
   state?: any
+  preventScrollReset?: boolean
+  relative?: 'route' | 'path'
 }
 
 type QueryStringProps = [
@@ -14,6 +16,7 @@ type QueryStringProps = [
 
 /**
  * @param {string} key The query string key
+ * @param {string} defaultValue The default value if the query string is not in the URL
  * @returns {string} The value of passed query string
  * @returns {function} Function to change query string programatically
  * @returns {string} The query string (same as location.search), eg: `?search=foo`
