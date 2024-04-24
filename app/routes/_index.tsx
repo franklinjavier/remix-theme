@@ -12,7 +12,17 @@ export default function Index() {
   return (
     <main className="mx-auto py-32 text-center sm:py-48">
       <Title>{title}</Title>
-      <p className="mb-8">Example of theme mode feature in Remix</p>
+      <p className="mb-8">
+        Example of theme toggle (light/dark mode) in Remix –{' '}
+        <a
+          className="text-blue-600"
+          href="https://github.com/franklinjavier/remix-theme"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Repo
+        </a>
+      </p>
       <ThemeToggle />
     </main>
   )
