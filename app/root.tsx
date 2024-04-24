@@ -9,8 +9,6 @@ import {
 } from '@remix-run/react'
 
 import './globals.css'
-import type { ThemeProps } from './hooks/useTheme'
-import { Theme } from './hooks/useTheme'
 import { getTheme } from './lib/cookies.server'
 
 export const links: LinksFunction = () => [
@@ -22,7 +20,7 @@ export const links: LinksFunction = () => [
 ]
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  const theme: ThemeProps = await getTheme(request)
+  const theme = await getTheme(request)
   return { theme }
 }
 
@@ -30,7 +28,7 @@ export default function App() {
   const { theme } = useLoaderData<typeof loader>()
 
   return (
-    <html className={theme ?? Theme.light} lang="en">
+    <html className={theme} lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
