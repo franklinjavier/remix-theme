@@ -10,10 +10,9 @@ export type ThemeProps = keyof typeof Theme
 export function useTheme() {
   const currentTheme = useRouteLoaderData('root') as { theme: ThemeProps }
   const fetchers = useFetchers()
-  const themeFetcher = fetchers.find(
-    (fetcher) => fetcher.formData?.get('intent') === 'theme',
-  )
-  const theme =
-    themeFetcher?.formData?.get('theme') ?? currentTheme.theme ?? Theme.light
+  const optimisticTheme = fetchers
+    .find((fetcher) => fetcher.formData?.get('intent') === 'theme')
+    ?.formData?.get('theme') as string
+  const theme = optimisticTheme ?? currentTheme.theme ?? Theme.light
   return { theme, isDark: theme !== Theme.light }
 }
