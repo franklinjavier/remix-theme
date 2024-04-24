@@ -13,6 +13,7 @@ export function useTheme() {
   const themeFetcher = fetchers.find(
     (fetcher) => fetcher.formData?.get('intent') === 'theme',
   )
-  const theme = themeFetcher?.formData?.get('theme') ?? currentTheme.theme
+  const theme =
+    themeFetcher?.formData?.get('theme') ?? currentTheme.theme ?? Theme.light
   return { theme, isDark: theme !== Theme.light }
 }
